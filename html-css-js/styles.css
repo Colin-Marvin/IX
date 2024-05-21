@@ -1,0 +1,64 @@
+body { 
+    font-family: Arial, sans-serif; 
+    line-height: 1.6; 
+    padding: 20px;
+    background-color: beige !important;
+}
+
+.link { 
+    color: white; 
+    text-decoration: none; 
+}
+
+.container {
+    background-color: lightsteelblue;
+    padding: 20px; /* Adjust this to increase/decrease the space around the image */
+    display: inline-block; /* Makes the container only as wide as its content */
+    margin: auto; /* Centers the container on the page */
+    text-align: center; /* Centers the content inside the container */
+}
+
+.header-content {
+    flex: 1 1 auto;  /* Allows this section to adjust based on content size */
+}
+
+.text-content {
+    flex: 1 1 100%;  /* Takes full width on smaller screens */
+}
+
+@media (min-width: 768px) {  /* Adjust this breakpoint as needed */
+    .container {
+        flex-direction: row;  /* Aligns children side by side on larger screens */
+    }
+    .text-content {
+        flex: 1 1 auto;  /* Allows this section to grow as needed */
+    }
+}
+
+img {
+    max-width: 100%; /* Ensures the image is responsive */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes bottom space/gap under the image */
+    margin: 0 auto; /* Center the image within the container */
+}
+
+
+h1 { 
+    color: #333; 
+}
+
+h2 {
+    color: cornflowerblue !important;
+}
+
+h4 {
+    color: mediumslateblue !important;
+}
+
+h6 {
+    color: violet !important;
+}
+
+p { 
+    margin: 20px 0; 
+}
