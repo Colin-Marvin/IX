@@ -1,7 +1,7 @@
 import React from "react";
 
 import Heading from "../Heading";
-import Navbar from "../Navbar";
+//import Navbar from "../Navbar"; ADD NAVBAR BEFORE CONTAINER DIV
 import BlogGrid from "../BlogGrid";
 import Footer from "../Footer";
 import SubHeading from "../SubHeading";
@@ -15,7 +15,6 @@ const categories = data.categories;
 export default function HomePage() {
   return (
     <>
-      <Navbar />
       <div className="container">
         <Heading />
         <SubHeading subHeading={"Recent Blog Posts"} />
