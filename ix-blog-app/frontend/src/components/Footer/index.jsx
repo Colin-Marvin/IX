@@ -16,7 +16,7 @@ const Footer = () => {
             data-mdb-ripple-init
             class="btn text-white btn-floating m-1"
             style={{ backgroundColor: "#3b5998" }}
-            href="#!"
+            href="https://www.facebook.com/colin.marvin.16"
             role="button"
           >
             <FontAwesomeIcon icon={faFacebookF} />
@@ -26,7 +26,7 @@ const Footer = () => {
             data-mdb-ripple-init
             class="btn text-white btn-floating m-1"
             style={{ backgroundColor: "#55acee" }}
-            href="#!"
+            href="https://x.com/EdwardMarvin12"
             role="button"
           >
             <FontAwesomeIcon icon={faTwitter} />
@@ -46,7 +46,7 @@ const Footer = () => {
             data-mdb-ripple-init
             class="btn text-white btn-floating m-1"
             style={{ backgroundColor: "#ac2bac" }}
-            href="#!"
+            href="https://www.instagram.com/colinmarvin_/"
             role="button"
           >
             <FontAwesomeIcon icon={faInstagram} />

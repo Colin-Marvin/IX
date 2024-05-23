@@ -12,6 +12,10 @@ export default function Categories({ blogPost }) {
             style={{
               color: category.color,
               backgroundColor: category.color + "33",
+              padding: "8px 16px", // Adds padding around the text
+              display: "inline-block", // Changes display to inline-block
+              margin: "5px", // Adds margin for spacing between tags
+              borderRadius: "5px", // Optional: adds rounded corners
             }}
           >
             {category.title}
