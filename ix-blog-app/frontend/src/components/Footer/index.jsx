@@ -1,4 +1,11 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -12,7 +19,7 @@ const Footer = () => {
             href="#!"
             role="button"
           >
-            <i class="fab fa-facebook-f"></i>
+            <FontAwesomeIcon icon={faFacebookF} />
           </a>
 
           <a
@@ -22,7 +29,7 @@ const Footer = () => {
             href="#!"
             role="button"
           >
-            <i class="fab fa-twitter"></i>
+            <FontAwesomeIcon icon={faTwitter} />
           </a>
 
           <a
@@ -32,7 +39,7 @@ const Footer = () => {
             href="#!"
             role="button"
           >
-            <i class="fab fa-google"></i>
+            <FontAwesomeIcon icon={faGoogle} />
           </a>
 
           <a
@@ -42,26 +49,28 @@ const Footer = () => {
             href="#!"
             role="button"
           >
-            <i class="fab fa-instagram"></i>
+            <FontAwesomeIcon icon={faInstagram} />
           </a>
 
           <a
             data-mdb-ripple-init
             class="btn text-white btn-floating m-1"
             style={{ backgroundColor: "#0082ca" }}
-            href="#!"
+            href="https://www.linkedin.com/in/colin-marvin/"
             role="button"
           >
-            <i class="fab fa-linkedin-in"></i>
+            <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
           <a
             data-mdb-ripple-init
             class="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#333333" }}
-            href="#!"
+            style={{
+              backgroundColor: "#333333",
+            }}
+            href="https://github.com/Colin-Marvin"
             role="button"
           >
-            <i class="fab fa-github"></i>
+            <FontAwesomeIcon icon={faGithub} />
           </a>
         </section>
       </div>
@@ -69,9 +78,8 @@ const Footer = () => {
         class="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        © 2020 Copyright:
         <a class="text-body" href="https://mdbootstrap.com/">
-          MDBootstrap.com
+          Click here for my personal portfolio!
         </a>
       </div>
     </footer>

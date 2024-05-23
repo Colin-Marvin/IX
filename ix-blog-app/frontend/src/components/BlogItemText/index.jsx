@@ -1,6 +1,7 @@
 import React from "react";
 
 import Categories from "../Categories";
+import PropTypes from "prop-types";
 import "./index.css";
 
 export default function BlogItemText({ blogPost, headerFontSize }) {
@@ -31,3 +32,7 @@ export default function BlogItemText({ blogPost, headerFontSize }) {
     </div>
   );
 }
+
+BlogItemText.propTypes = {
+  blogPost: PropTypes.array.isRequired,
+};

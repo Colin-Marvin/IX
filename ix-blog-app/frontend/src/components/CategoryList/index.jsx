@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./index.css";
 
@@ -34,3 +35,7 @@ export default function CategoryList({ categories }) {
     </div>
   );
 }
+
+CategoryList.prototype = {
+  categories: PropTypes.array.isRequired,
+};
