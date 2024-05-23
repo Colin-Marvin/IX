@@ -1,7 +1,6 @@
 import React from "react";
-
-import Categories from "../Categories";
 import PropTypes from "prop-types";
+
 import "./index.css";
 
 export default function BlogItemText({ blogPost, headerFontSize }) {
@@ -28,11 +27,11 @@ export default function BlogItemText({ blogPost, headerFontSize }) {
       <p style={{ fontSize: "16px", color: "#667085", textAlign: "left" }}>
         {blogPost.description.substring(0, 100)}...
       </p>
-      <Categories blogPost={blogPost} />
     </div>
   );
 }
 
 BlogItemText.propTypes = {
-  blogPost: PropTypes.array.isRequired,
+  blogPost: PropTypes.object.isRequired,
+  headerFontSize: PropTypes.string,
 };

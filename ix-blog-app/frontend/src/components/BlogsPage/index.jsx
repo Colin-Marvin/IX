@@ -10,7 +10,7 @@ import "./index.css";
 
 //Importing Dummy Data
 const data = require("../../dummy-data.json");
-let blogPosts = data.blogPosts;
+const blogPosts = data.blogPosts;
 
 export default function BlogsPage() {
   return (
@@ -18,9 +18,7 @@ export default function BlogsPage() {
       <Navbar />
       <div className="container">
         <Heading />
-        <div className="scroll-menu">
-          <CategoriesList />
-        </div>
+        <div className="scroll-menu"></div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <p className="page-subtitle">Blog Posts</p>
         </div>
