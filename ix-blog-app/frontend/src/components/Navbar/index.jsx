@@ -1,8 +1,8 @@
 import React from "react";
 import "./index.css";
 // Import the categories and blog page components, and update the links to go to the site
-import catPage from "../CategoriesPage";
-import { Link } from "react-router-dom";
+//import Categoriespage from "../CategoriesPage";
+//import { Link } from "react-router-dom";
 //import "../BlogPage";
 
 const Navbar = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/catPage">
+            <a className="nav-link" href="/Categories">
               Categories
             </a>
           </li>
