@@ -1,9 +1,7 @@
 import React from "react";
 import "./index.css";
-// Import the categories and blog page components, and update the links to go to the site
-//import Categoriespage from "../CategoriesPage";
+
 //import { Link } from "react-router-dom";
-//import "../BlogPage";
 
 const Navbar = () => {
   return (

@@ -1,85 +1,100 @@
 import React from "react";
+//import { Link } from "react-router-dom"; // Import Link
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebookF,
+  faTwitter,
+  faGoogle,
+  faInstagram,
+  faLinkedinIn,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+
+import "./index.css";
 
 const Footer = () => {
   return (
-    <footer class="bg-body-tertiary text-center">
-      <div class="container p-4 pb-0">
-        <section class="mb-4">
-          <a
-            data-mdb-ripple-init
-            class="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#3b5998" }}
-            href="https://www.facebook.com/colin.marvin.16"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faFacebookF} />
-          </a>
-
-          <a
-            data-mdb-ripple-init
-            class="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#55acee" }}
-            href="https://x.com/EdwardMarvin12"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-
-          <a
-            data-mdb-ripple-init
-            class="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#dd4b39" }}
-            href="#!"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faGoogle} />
-          </a>
-
-          <a
-            data-mdb-ripple-init
-            class="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#ac2bac" }}
-            href="https://www.instagram.com/colinmarvin_/"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-
-          <a
-            data-mdb-ripple-init
-            class="btn text-white btn-floating m-1"
-            style={{ backgroundColor: "#0082ca" }}
-            href="https://www.linkedin.com/in/colin-marvin/"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faLinkedinIn} />
-          </a>
-          <a
-            data-mdb-ripple-init
-            class="btn text-white btn-floating m-1"
-            style={{
-              backgroundColor: "#333333",
-            }}
-            href="https://github.com/Colin-Marvin"
-            role="button"
-          >
-            <FontAwesomeIcon icon={faGithub} />
-          </a>
-        </section>
+    <footer className="footer-container text-center">
+      <div className="container p-4 pb-0">
+        <ul className="social-links">
+          {/* Facebook */}
+          <li className="social-link-item">
+            <a
+              className="btn text-white btn-floating m-1"
+              style={{ backgroundColor: "#3b5998" }}
+              href="https://www.facebook.com/colin.marvin.16"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+          </li>
+          {/* Twitter */}
+          <li className="social-link-item">
+            <a
+              className="btn text-white btn-floating m-1"
+              style={{ backgroundColor: "#55acee" }}
+              href="https://twitter.com/EdwardMarvin12"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </li>
+          {/* Google */}
+          <li className="social-link-item">
+            <a
+              className="btn text-white btn-floating m-1"
+              style={{ backgroundColor: "#dd4b39" }}
+              href="#!"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faGoogle} />
+            </a>
+          </li>
+          {/* Instagram */}
+          <li className="social-link-item">
+            <a
+              className="btn text-white btn-floating m-1"
+              style={{ backgroundColor: "#ac2bac" }}
+              href="https://www.instagram.com/colinmarvin_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </li>
+          {/* LinkedIn */}
+          <li className="social-link-item">
+            <a
+              className="btn text-white btn-floating m-1"
+              style={{ backgroundColor: "#0082ca" }}
+              href="https://www.linkedin.com/in/colin-marvin/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} />
+            </a>
+          </li>
+          {/* GitHub */}
+          <li className="social-link-item">
+            <a
+              className="btn text-white btn-floating m-1"
+              style={{ backgroundColor: "#333333" }}
+              href="https://github.com/Colin-Marvin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+          </li>
+        </ul>
       </div>
-      <div
-        class="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
-      >
-        <a class="text-body" href="https://mdbootstrap.com/">
-          Click here for my personal portfolio!
+      <div className="copy-right-section">
+        © 2020 Click here for my{" "}
+        <a className="text-body" href="https://mdbootstrap.com/">
+          personal portfolio!
         </a>
       </div>
     </footer>

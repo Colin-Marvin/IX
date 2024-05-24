@@ -1,6 +1,16 @@
-.navbar {
-  border-bottom: 1px solid #ccc;
+/* Assuming .navbar ul is the container for your nav-links */
+.navbar ul {
+  display: flex; /* Aligns children (li) in a row */
+  list-style: none; /* Removes bullets */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
 }
+
+.navbar li {
+  margin-right: 10px; /* Spacing between nav items */
+}
+
 .nav-link {
-  margin-right: 10px;
+  text-decoration: none; /* Optional: removes underline from links */
+  color: #333; /* Sets text color */
 }

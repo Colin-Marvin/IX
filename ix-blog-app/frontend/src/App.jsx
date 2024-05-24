@@ -1,16 +1,31 @@
 import React from "react";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-//import Homepage from "./components/HomePage";
-//import Categoriespage from "./components/CategoriesPage";
-import Blogspage from "./components/BlogsPage";
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import HomePage from "./pages/Home";
+import BlogsPage from "./pages/Blogs";
+import CategoriesPage from "./pages/Categories";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/home",
+    element: <HomePage />,
+  },
+  {
+    path: "/categories",
+    element: <CategoriesPage />,
+  },
+  {
+    path: "/blogs/:categoryId?",
+    element: <BlogsPage />,
+  },
+]);
 function App() {
-  return (
-    <div className="App">
-      <Blogspage />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
