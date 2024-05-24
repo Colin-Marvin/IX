@@ -3,19 +3,21 @@ import PropTypes from "prop-types";
 
 import "./index.css";
 
-export default function CategoryList({ categories }) {
-  if (!categories) return null;
+export default function CategoriesList({ categories }) {
   return (
     <div className="category-list">
-      {categories?.map((category, index) => {
+      {categories.map((category) => {
         return (
-          <div
-            key={index}
+          <button
+            key={category.id}
             className="card"
             style={{ borderRadius: "0px", border: "none" }}
+            onClick={() => {
+              console.log("TODO: Navigate to categories page");
+            }}
           >
             <div
-              className="card-body"
+              className="card-body w-100"
               style={{
                 backgroundColor: category.color + "33",
                 position: "relative",
@@ -29,13 +31,13 @@ export default function CategoryList({ categories }) {
                 {category.description.substring(0, 100)} ...
               </p>
             </div>
-          </div>
+          </button>
         );
       })}
     </div>
   );
 }
 
-CategoryList.prototype = {
+CategoriesList.prototype = {
   categories: PropTypes.array.isRequired,
 };

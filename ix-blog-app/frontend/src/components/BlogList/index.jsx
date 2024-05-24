@@ -1,41 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./index.css";
+import BlogItem from "../BlogItem";
 
-export default function BlogLists({ blogPosts }) {
-  if (!blogPosts) return null;
+export default function BlogList({ blogPosts }) {
+  if (!blogPosts && !blogPosts?.length) {
+    return null;
+  }
+
+  // TODO: Styling
   return (
-    <div className="blog-list">
-      {blogPosts?.map((post, index) => {
+    <div className="d-flex w-100">
+      {blogPosts.map((blog, index) => {
         return (
-          <div
+          <BlogItem
             key={index}
-            className="blog-card"
-            style={{ borderRadius: "8px", border: "1px solid #ccc" }}
-          >
-            <div
-              className="blog-card-body"
-              style={{
-                backgroundColor: "#f8f9fa",
-                position: "relative",
-                zIndex: 1,
-              }}
-            >
-              <h5 className="blog-card-title">{post.title}</h5>
-            </div>
-            <div className="blog-card-body">
-              <p className="blog-card-text">
-                {post.description.substring(0, 100)}...
-              </p>
-            </div>
-          </div>
+            index={index}
+            blogPost={blog}
+            setBlog={() => {}}
+            imageOrientation={"top"}
+          />
         );
       })}
     </div>
   );
 }
 
-BlogLists.propTypes = {
+BlogList.prototype = {
   blogPosts: PropTypes.array.isRequired,
 };
