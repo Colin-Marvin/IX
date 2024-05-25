@@ -1,41 +1,29 @@
 import React from "react";
-import "./index.css";
-
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import "./index.css"; // Assuming your CSS is named index.css and in the same directory
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="/">
+      <Link className="navbar-brand" to="/">
         IX Prototype Blog
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
+      </Link>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/">
+            <Link className="nav-link active" aria-current="page" to="/">
               Homepage
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/CategoriesPage">
+            <Link className="nav-link" to="/categories">
               Categories
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/blogs">
+            <Link className="nav-link" to="/blogs">
               Blogs
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Heading from "../../components/Heading";
 import BlogList from "../../components/BlogList";
@@ -7,33 +7,24 @@ import Footer from "../../components/Footer";
 import "./index.css";
 
 const data = require("../../dummy-data.json");
-let blogsDummyData = data.blogPosts;
+const blogsDummyData = data.blogPosts;
 const categoriesDummyData = data.categories;
 
 export default function BlogsPage() {
   const [blogs, setBlogs] = useState(blogsDummyData);
   const [categoryId, setCategoryId] = useState();
 
-  if (categoryId) {
-    blogsDummyData.filter((blog) =>
-      blog.categories.some(function (category) {
-        return category.id === categoryId;
-      })
-    );
-  }
-
-  useEffect(() => {
+  const callbackFunction = () => {
     if (categoryId) {
-      const filteredBlogs = blogsDummyData.filter((blog) =>
-        blog.categories.some(function (category) {
-          return category.id === categoryId;
-        })
-      );
-      setBlogs(filteredBlogs);
+      const filterBlogs = blogsDummyData.filter((blog) => {
+        return blog.categories.some((category) => category.id === categoryId);
+      });
+      setBlogs(filterBlogs);
     }
-  }, [categoryId]);
+  };
+  useEffect(callbackFunction, [categoryId]);
 
-  const CategoriesList = (categoryId) => {
+  const CategoriesList = ({ categoryId }) => {
     return categoriesDummyData.map((category) => {
       return categoryId === category.id ? (
         <button
@@ -61,13 +52,14 @@ export default function BlogsPage() {
       <div className="container">
         <Heading />
         <div className="scroll-menu">
-          <CategoriesList />
+          <CategoriesList categoryId={categoryId} />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <p className="page-subtitle">Blog Posts</p>
         </div>
         <BlogList blogPosts={blogs} />
       </div>
+
       <Footer />
     </>
   );

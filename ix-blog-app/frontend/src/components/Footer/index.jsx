@@ -92,7 +92,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="copy-right-section">
-        © 2020 Click here for my{" "}
+        © 2024 Click here for my{" "}
         <a className="text-body" href="https://mdbootstrap.com/">
           personal portfolio!
         </a>

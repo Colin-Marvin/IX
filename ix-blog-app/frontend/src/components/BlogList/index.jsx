@@ -1,7 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import BlogItem from "../BlogItem";
+import PropTypes from "prop-types";
 
 export default function BlogList({ blogPosts }) {
   if (!blogPosts && !blogPosts?.length) {
