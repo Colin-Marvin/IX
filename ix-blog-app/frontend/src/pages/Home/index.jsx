@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Heading from "../../components/Heading";
 import Navbar from "../../components/Navbar";
@@ -7,13 +7,43 @@ import Footer from "../../components/Footer";
 import SubHeading from "../../components/SubHeading";
 import CategoryList from "../../components/CategoryList";
 
-// Week 1: Import the blogPosts and categories from the dummy-data.json file
-const data = require("../../dummy-data.json");
-const blogs = data.blogPosts.reverse();
-const categories = data.categories;
-//const datum = data.blogPosts;
+import blogService from "../../services/blogService";
 
 export default function HomePage() {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const blogAPIdata = await blogService.getBlogs();
+        setBlogs(blogAPIdata);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      setLoading(true);
+      try {
+        const categoryAPIdata = await blogService.getCategories();
+        setCategories(categoryAPIdata);
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to fetch categories");
+        setLoading(false);
+      }
+    };
+    fetchCategories();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -22,7 +52,9 @@ export default function HomePage() {
         <SubHeading subHeading={"Recent Blog Posts"} />
         <BlogGrid blogPosts={blogs}></BlogGrid>
         <SubHeading subHeading={"Categories"} />
-        <CategoryList categories={categories}></CategoryList>
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+        <CategoryList categories={categories} />
         <Footer />
       </div>
     </>

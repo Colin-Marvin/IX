@@ -3,64 +3,63 @@ import Navbar from "../../components/Navbar";
 import Heading from "../../components/Heading";
 import BlogList from "../../components/BlogList";
 import Footer from "../../components/Footer";
+import CategoriesList from "../../components/CategoryList";
 
 import "./index.css";
 
-const data = require("../../dummy-data.json");
-const blogsDummyData = data.blogPosts;
-const categoriesDummyData = data.categories;
+import blogService from "../../services/blogService";
 
 export default function BlogsPage() {
-  const [blogs, setBlogs] = useState(blogsDummyData);
+  const [blogs, setBlogs] = useState([]);
   const [categoryId, setCategoryId] = useState();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const callbackFunction = () => {
-    if (categoryId) {
-      const filterBlogs = blogsDummyData.filter((blog) => {
-        return blog.categories.some((category) => category.id === categoryId);
-      });
-      setBlogs(filterBlogs);
-    }
-  };
-  useEffect(callbackFunction, [categoryId]);
+  // Fetch blogs based on category
+  useEffect(() => {
+    setLoading(true);
+    const fetchBlogs = async () => {
+      try {
+        // Adjust the URL or function according to your API structure
+        // This assumes your API can filter blogs by category ID
+        const result = await blogService.getBlogsByCategory(categoryId);
+        setBlogs(result);
+        setLoading(false);
+      } catch (err) {
+        console.error("Failed to fetch blogs:", err);
+        setError("Failed to fetch blogs");
+        setLoading(false);
+      }
+    };
 
-  const CategoriesList = ({ categoryId }) => {
-    return categoriesDummyData.map((category) => {
-      return categoryId === category.id ? (
-        <button
-          key={category.id}
-          onClick={() => setCategoryId(category.id)}
-          style={{ color: "blue" }}
-        >
-          <p key={category.id}>{category.title}</p>
-        </button>
-      ) : (
-        <button
-          key={category.id}
-          onClick={() => setCategoryId(category.id)}
-          style={{ color: "black" }}
-        >
-          <p key={category.id}>{category.title}</p>
-        </button>
-      );
-    });
+    fetchBlogs();
+  }, [categoryId]); // Re-run this effect when categoryId changes
+
+  // Handler to change category ID
+  const handleCategoryChange = (id) => {
+    setCategoryId(id);
   };
 
   return (
-    <>
+    <div>
       <Navbar />
       <div className="container">
         <Heading />
         <div className="scroll-menu">
-          <CategoriesList categoryId={categoryId} />
+          {/* Passing down the handler to change category */}
+          <CategoriesList
+            categoryId={categoryId}
+            onCategoryChange={handleCategoryChange}
+          />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <p className="page-subtitle">Blog Posts</p>
         </div>
-        <BlogList blogPosts={blogs} />
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error}</p>}
+        {!loading && !error && <BlogList blogPosts={blogs} />}
       </div>
-
       <Footer />
-    </>
+    </div>
   );
 }
