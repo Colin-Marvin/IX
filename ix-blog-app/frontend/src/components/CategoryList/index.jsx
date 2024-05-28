@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import "./index.css";
 
 export default function CategoriesList({ categories }) {
-  if (!Array.isArray(categories)) {
-    console.error("Expected categories to be an array", categories);
+  if (!categories && !categories.length) {
+    console.error("Expected categories to not fail", categories);
     return null; // Or some fallback UI
   }
   return (

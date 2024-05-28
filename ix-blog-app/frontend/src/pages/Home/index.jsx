@@ -8,31 +8,37 @@ import SubHeading from "../../components/SubHeading";
 import CategoryList from "../../components/CategoryList";
 
 import blogService from "../../services/blogService";
+import categoriesService from "../../services/categoryService";
 
 export default function HomePage() {
   const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const blogAPIdata = await blogService.getBlogs();
-        setBlogs(blogAPIdata);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchBlogs();
-  }, []);
-
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    setLoading(true);
+    const fetchBlogs = async () => {
+      try {
+        const blogAPIdata = await blogService.getBlogs();
+        const categoryRes = await categoriesService.getCategories();
+        setBlogs(blogAPIdata);
+        setCategories(categoryRes);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+        setError("Failed to fetch blogs");
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  useEffect(() => {
     const fetchCategories = async () => {
       setLoading(true);
       try {
-        const categoryAPIdata = await blogService.getCategories();
+        const categoryAPIdata = await categoriesService.getCategories();
         setCategories(categoryAPIdata);
         setLoading(false);
       } catch (err) {
